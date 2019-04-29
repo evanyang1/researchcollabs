@@ -1,4 +1,4 @@
-# researchcollabs
+# ResearchCollabs
 
 
 ## Enter Project description
