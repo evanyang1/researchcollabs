@@ -1,4 +1,4 @@
-import React from 'react'; // Needed for react
+import React, {Component} from 'react' // Needed for react
 
 class Button extends React.Component {
   render() {
@@ -6,4 +6,4 @@ class Button extends React.Component {
   }
 }
 
-export default Button;
+export default Button
