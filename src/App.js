@@ -1,8 +1,7 @@
 import React, { Component} from "react"
 import {Link, BrowserRouter, Switch, Route} from 'react-router-dom'
 
-
-//import "./App.css";
+import './Styles/styles.scss';
 
 import Button from './Components/Button'
 

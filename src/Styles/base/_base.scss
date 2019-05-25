@@ -1,0 +1,16 @@
+$light-green: #aad1a3;
+$m-size: 1.6rem;
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background: #dfffd8;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: $m-size;
+}
+
+button {
+  cursor: pointer;
+}
