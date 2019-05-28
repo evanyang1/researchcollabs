@@ -54,6 +54,8 @@ $facebook-blue: #0043ff;
   border: none;
   border-bottom: .6rem solid lighten(red, 10%);
   border-left: .6rem solid lighten(red, 10%);
+  border-top: .1rem solid lighten(red, 10%);
+  border-right: .1rem solid lighten(red, 10%);
   color: #ff5647;
   font-weight: bold;
   font-size: $l-size;
