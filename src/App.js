@@ -1,6 +1,11 @@
 import React, { Component} from "react"
 import {Link, BrowserRouter, Switch, Route} from 'react-router-dom'
 
+// GraphQL stuff
+import { ApolloProvider } from "react-apollo"
+import gql from 'graphql-tag'
+import { graphql } from 'react-apollo'
+
 import './Styles/styles.scss';
 
 import Button from './Components/Button'
@@ -12,6 +17,16 @@ import Jumbotron from './Components/Jumbotron'
 import JumbotronAbout from './Pages/AboutPage'
 import ResearchArea from './Pages/ResearchArea'
 import LoginPage from './Pages/LoginPage'
+
+const EntryQuery = gql`
+{
+  entries {
+    id
+    title
+  }
+}
+`
+
 
 // This is the homepage! It contains the components for the homepage.
 class App extends Component{
@@ -35,4 +50,4 @@ class App extends Component{
   }
 }
 
-export default App
+export default graphql(EntryQuery)(App)
