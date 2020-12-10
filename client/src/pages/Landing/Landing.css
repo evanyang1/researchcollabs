@@ -1,0 +1,10 @@
+.header {
+    display: flex;
+    flex-direction: row;
+}
+
+.center {
+    width: 10%;
+    margin: 0 auto;
+    margin-top: 4em;
+}
