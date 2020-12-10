@@ -9,9 +9,38 @@ export default function Register() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
+  const [errorEmail, setErrorEmail] = useState(false);
+  const [errorPassword, setErrorPassword] = useState(false);
+  const [errorConfirmPassword, setErrorConfirmPassword] = useState(false);
+
+  const isEmail = (email) => /^\S+@\S+$/.test(email);
+
   const handleSubmit = () => {
     alert(confirmPassword);
   };
+
+  const isErrorFree = () => {
+    if (!isEmail(email)) {
+      setErrorEmail(true);
+      return false;
+    }
+    if (password.length <= 5) {
+      setErrorPassword(true);
+      return false;
+    }
+    if (password !== confirmPassword) {
+      setErrorConfirmPassword(true);
+      return false;
+    }
+
+    return true;
+  };
+
+  useEffect(() => {
+    if (isEmail(email)) setErrorEmail(false);
+    if (password.length > 5) setErrorPassword(false);
+    if (password === confirmPassword) setErrorConfirmPassword(false);
+  }, [email, password, confirmPassword]);
 
   return (
     <main>
