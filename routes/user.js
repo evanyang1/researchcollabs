@@ -3,7 +3,7 @@ const router = express.Router();
 const { check, validationResult } = require("express-validator");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-
+const auth = require('../middleware/auth')
 require("dotenv").config();
 
 const User = require("../models/User");
@@ -67,7 +67,6 @@ router.get("/logout", async (req, res) => {
 router.post(
   "/signup",
   [
-    check("name", "Name required").notEmpty(),
     check("email", "Email required").isEmail().trim(),
     check("password", "Password required").isLength({ min: 6 }),
   ],
@@ -76,7 +75,7 @@ router.post(
     if (!errors.isEmpty())
       return res.status(422).json({ errors: errors.array() });
 
-    const { name, email, password } = req.body;
+    const { email, password } = req.body;
 
     try {
       // Email must be unique
@@ -85,17 +84,13 @@ router.post(
       if (user) {
         return res.status(400).json({ msg: "This user already exists" });
       }
-
       const salt = bcrypt.genSaltSync();
       const hashed_password = bcrypt.hashSync(password, salt);
-
       // REGISTER USER!!!
       user = new User({
-        name,
         email,
         password: hashed_password,
       });
-
       await user.save();
 
       //Set up the jwt payload to user ID and email option
@@ -124,3 +119,19 @@ router.post(
     }
   })
 );
+
+router.get(
+  "/get_current_user",
+  auth,
+  runAsyncWrapper(async function (req, res) {
+    const user = await User.findById(req.user.id);
+
+    if (!user) {
+      return res.status(400).json({ error: "User not found" });
+    } else {
+      return res.status(200).json(user);
+    }
+  })
+);
+
+module.exports = router;

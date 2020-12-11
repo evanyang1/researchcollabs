@@ -10,8 +10,7 @@ const UserSchema = new mongoose.Schema({
     required: true,
   },
   bio: {
-    type: String,
-    required: true,
+    type: String
   },
 });
 

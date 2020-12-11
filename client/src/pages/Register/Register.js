@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import "./Register.css";
 import "react-bulma-components/dist/react-bulma-components.min.css";
 import { Button } from "react-bulma-components";
+import { UserContext } from '../../contexts/userContext';
 
 export default function Register() {
   const [email, setEmail] = useState("");
@@ -15,8 +16,15 @@ export default function Register() {
 
   const isEmail = (email) => /^\S+@\S+$/.test(email);
 
+  const { userState, userActions } = useContext(UserContext);
+
   const handleSubmit = () => {
-    alert(confirmPassword);
+    if (!isEmail(email)) setErrorEmail(true);
+    if (!password) setErrorPassword(true);
+    if (password !== confirmPassword) setErrorConfirmPassword(true);
+    if (isErrorFree()) {
+      userActions.signup(email, password);
+    }
   };
 
   const isErrorFree = () => {
