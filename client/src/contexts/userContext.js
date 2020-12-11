@@ -6,9 +6,6 @@ import { UPDATE_USER, USER_LOGOUT, USER_ERROR } from "../reducers/userReducer";
 
 const UserContext = createContext();
 
-//axios.defaults.baseURL = `${window.location.protocol}//${window.location.hostname}:${process.env.PORT}`;
-//console.log(axios.defaults.baseURL)
-
 const initialState = {
   user: { name: "" },
 };
@@ -49,7 +46,7 @@ const UserProvider = (props) => {
     },
     login: async (email, password) => {
       try {
-        const res = await axios.post(`/user/login`, {
+        const res = await axios.post(`${serverURL}/user/login`, {
           email,
           password,
         });
@@ -75,7 +72,6 @@ const UserProvider = (props) => {
     fetchUser: async () => {
       try {
         const res = await axios.get(`${serverURL}/user/get_current_user`);
-
         if (res.status === 200) {
           const data = await res.data;
           dispatch({ type: UPDATE_USER, payload: data });
@@ -89,7 +85,7 @@ const UserProvider = (props) => {
     },
     logout: async () => {
       try {
-        await axios.get(`/user/logout`);
+        await axios.get(`${serverURL}/user/logout`);
         history.push("/");
         dispatch({ type: USER_LOGOUT });
       } catch (err) {

@@ -4,7 +4,7 @@ require("dotenv").config();
 module.exports = (req, res, next) => {
   const cookies = req.cookies;
   const token = cookies.token;
-
+  console.log(cookies);
   if (!token) {
     return res.status(401).json({ msg: "Authorization Denied" });
   }
