@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/evanyang1/researchcollabs#readme",
   "dependencies": {
-    "axios": "^0.21.0",
+    "axios": "^0.21.1",
     "bcrypt": "^5.0.0",
     "concurrently": "^5.3.0",
     "cookie-parser": "^1.4.5",
