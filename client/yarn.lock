@@ -2905,6 +2905,11 @@
   "resolved" "https://registry.npmjs.org/builtin-status-codes/-/builtin-status-codes-3.0.0.tgz"
   "version" "3.0.0"
 
+"bulma@^1.0.2":
+  "integrity" "sha512-D7GnDuF6seb6HkcnRMM9E739QpEY9chDzzeFrHMyEns/EXyDJuQ0XA0KxbBl/B2NTsKSoDomW61jFGFaAxhK5A=="
+  "resolved" "https://registry.npmjs.org/bulma/-/bulma-1.0.2.tgz"
+  "version" "1.0.2"
+
 "bulma@0.8.2":
   "integrity" "sha512-vMM/ijYSxX+Sm+nD7Lmc1UgWDy2JcL2nTKqwgEqXuOMU+IGALbXd5MLt/BcjBAPLIx36TtzhzBcSnOP974gcqA=="
   "resolved" "https://registry.npmjs.org/bulma/-/bulma-0.8.2.tgz"
