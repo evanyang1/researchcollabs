@@ -1,0 +1,11 @@
+.login-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* above 3: center flex */
+  margin-top: 5%;
+}
+
+.create-account-btn {
+  margin-top: 5%;
+}

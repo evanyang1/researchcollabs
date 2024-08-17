@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import "./Register.css";
 import { Button } from "react-bulma-components";
-import { UserContext } from '../../contexts/userContext';
+import { UserContext } from "../../contexts/userContext";
 
 export default function Register() {
   const [email, setEmail] = useState("");
@@ -53,9 +53,6 @@ export default function Register() {
     <main>
       <section className="header">
         <h1 className="is-size-1">Research Collabs</h1>
-        <Link to="/">
-          <Button className="is-primary is-large">Login</Button>
-        </Link>
       </section>
       <section className="center">
         <h1 className="is-size-2">Create a New Account</h1>
@@ -77,9 +74,14 @@ export default function Register() {
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
         </div>
-        <Button className="is-link is-rounded" onClick={handleSubmit}>
+        <Button className="is-link is-rounded create-account-btn" onClick={handleSubmit}>
           Create Account
         </Button>
+      </section>
+      <section className="login-btn">
+        <Link to="/">
+          <Button className="is-primary is-large is-outlined">Have an account? Login</Button>
+        </Link>
       </section>
     </main>
   );

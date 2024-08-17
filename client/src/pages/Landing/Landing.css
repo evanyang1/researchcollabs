@@ -1,10 +1,26 @@
 .header {
     display: flex;
     flex-direction: row;
+    /* next 3: center div */
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .center {
     width: 10%;
     margin: 0 auto;
     margin-top: 4em;
+}
+
+.register-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* above 3: center flex */
+    margin-top: 5%;
+}
+
+.login-btn {
+    margin-top: 5%;
 }
