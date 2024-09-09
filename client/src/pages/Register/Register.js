@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import "./Register.css";
 import { Button } from "react-bulma-components";
-import { UserContext } from "../../contexts/userContext";
 
 export default function Register() {
   const [email, setEmail] = useState("");
@@ -15,14 +14,11 @@ export default function Register() {
 
   const isEmail = (email) => /^\S+@\S+$/.test(email);
 
-  const { userState, userActions } = useContext(UserContext);
-
   const handleSubmit = () => {
     if (!isEmail(email)) setErrorEmail(true);
     if (!password) setErrorPassword(true);
     if (password !== confirmPassword) setErrorConfirmPassword(true);
     if (isErrorFree()) {
-      userActions.signup(email, password);
     }
   };
 
@@ -74,13 +70,18 @@ export default function Register() {
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
         </div>
-        <Button className="is-link is-rounded create-account-btn" onClick={handleSubmit}>
+        <Button
+          className="is-link is-rounded create-account-btn"
+          onClick={handleSubmit}
+        >
           Create Account
         </Button>
       </section>
       <section className="login-btn">
         <Link to="/">
-          <Button className="is-primary is-large is-outlined">Have an account? Login</Button>
+          <Button className="is-primary is-large is-outlined">
+            Have an account? Login
+          </Button>
         </Link>
       </section>
     </main>

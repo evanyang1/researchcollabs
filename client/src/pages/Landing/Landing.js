@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import "./Landing.css";
 import { Button } from "react-bulma-components";
-import { UserContext } from "../../contexts/userContext";
 
 export default function Landing() {
   const [email, setEmail] = useState("");
@@ -11,12 +10,9 @@ export default function Landing() {
   const [errorEmail, setErrorEmail] = useState(false);
   const [errorPassword, setErrorPassword] = useState(false);
 
-  const { userActions, userState } = useContext(UserContext);
-
   const handleClick = () => {
     if (!email) return setErrorEmail(true);
     if (!password) return setErrorPassword(true);
-    userActions.login(email, password);
   };
   return (
     <main>

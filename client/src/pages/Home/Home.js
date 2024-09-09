@@ -1,12 +1,10 @@
 import React, { useContext } from "react";
 import { Button } from "react-bulma-components";
-import { UserContext } from "../../contexts/userContext";
 
 export default function Home() {
-  const { userState, userActions } = useContext(UserContext);
   return (
     <div>
-      <Button className="is-large is-info" onClick={userActions.logout}>
+      <Button className="is-large is-info">
         Logout
       </Button>
     </div>
